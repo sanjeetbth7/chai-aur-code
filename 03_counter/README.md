@@ -29,3 +29,36 @@ Other key features include the ability to pause, abort, or reuse work as new upd
 
 [https://github.com/acdlite/react-fiber-architecture]
 
+
+## Interview question
+
+
+  // UI updation is controled by react using hooks
+```
+  let [count, setCount] = useState(15)
+  const addCount = ()=>{
+    setCount(()=> count + 1)
+    setCount(()=> count + 1)
+    setCount(()=> count + 1)
+    setCount(()=> count + 1)
+    setCount(()=> count + 1)
+  }
+  ```
+* **output** : 16
+* This is becase react/fiber upadte code in bunch with comparing, here "setCount(()=> count + 1)" is called 5 times but same. so executed only one.
+* To Do this we use :
+```
+  let [count, setCount] = useState(15)
+  const addCount = ()=>{
+    setCount((preCount)=> preCount + 1)
+    setCount((preCount)=> preCount + 1)
+    setCount((preCount)=> preCount + 1)
+    setCount((preCount)=> preCount + 1)
+    setCount((preCount)=> preCount + 1)
+  }
+  ```
+
+
+ 
+
+
