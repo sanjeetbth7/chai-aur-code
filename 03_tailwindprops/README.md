@@ -24,10 +24,27 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-**4. Import Tailwind in `index.html`:**
+**4. Add the paths to all of your template files in your tailwind.config.js file.**
+```tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-```html
-<link rel="stylesheet" href="node_modules/tailwindcss/dist/tailwind.min.css">
+**4. Add the Tailwind directives to your CSS**
+
+```index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 **5. Start development server:**
