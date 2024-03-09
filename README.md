@@ -1,5 +1,6 @@
-Complete React Roadmap 🔥
-|
+# Complete React Roadmap 🔥
+
+```
 |--- Fundamentals
 |       |-- JavaScript ES6+
 |       |-- JSX 
@@ -125,5 +126,6 @@ Complete React Roadmap 🔥
        └─ GitHub Repositories
 
 ------------------ END -------------------
+```
 
 special thanks to (https://github.com/hiteshchoudhary)
