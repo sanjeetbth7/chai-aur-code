@@ -1,4 +1,4 @@
-I'd be glad to explain `dartMode` in `tailwind.config.js` for Tailwind CSS:
+`dartMode` in `tailwind.config.js` for Tailwind CSS:
 
 **What is `darkMode`?**
 
