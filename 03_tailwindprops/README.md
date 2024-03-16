@@ -8,7 +8,7 @@
 Open your terminal and run:
 
 ```bash
-npm init vite@latest my-project
+npm create vite@latest my-project
 cd my-project
 ```
 
@@ -32,6 +32,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode:'class',
   theme: {
     extend: {},
   },
@@ -56,14 +57,15 @@ npm run dev
 **6. Use Tailwind classes in your components!**
 
 ```jsx
-// App.jsx
+
 import React from 'react';
+import './index.css';
 
 function App() {
   return (
-    <div className="container mx-auto">
+    <div className="container p-4 flex flex-wrap justify-center flex-col items-center">
       <h1 className="text-3xl font-bold">Hello, Tailwind!</h1>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 max-w-sm rounded">
         Click me
       </button>
     </div>
