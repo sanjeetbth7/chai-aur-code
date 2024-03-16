@@ -31,8 +31,28 @@ Here are the key methods for working with local storage:
 import { useState, useEffect } from 'react';
 
 function useLocalStorage(key, defaultValue) {
-  // ... (implementation from previous response)
+  // Parse stored json or return default value
+  const getFromStorage = () => {
+    const storedValue = localStorage.getItem(key);
+    if (!storedValue) {
+      return defaultValue;
+    }
+    return JSON.parse(storedValue);
+  };
+
+  const [value, setValue] = useState(getFromStorage);
+
+  // useEffect for persistent state
+  useEffect(() => {
+    // Store new value to LocalStorage
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [value, key]);
+
+  return [value, setValue];
 }
+
+export default useLocalStorage;
+
 
 export default useLocalStorage;
 ```
@@ -42,11 +62,26 @@ export default useLocalStorage;
 ```javascript
 import useLocalStorage from './useLocalStorage'; // Assuming useLocalStorage is in a separate file
 
+import React, { useState } from 'react';
+import useLocalStorage from './useLocalStorage'; // Assuming useLocalStorage is in a separate file
+
 function App() {
   const [name, setName] = useLocalStorage('user-name', '');
 
-  // ... (component logic)
+  const handleChange = (event) => {
+    setName(event.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={name} onChange={handleChange} placeholder="Enter your name" />
+      <p>Your name: {name}</p>
+    </div>
+  );
 }
+
+export default App;
+
 ```
 
 This approach offers a clean and maintainable way to interact with local storage data in your React components.
