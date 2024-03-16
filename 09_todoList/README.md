@@ -1,7 +1,7 @@
 # To-Do List
 Here's a concise explanation of local storage in React with an example:
 
-**Local Storage:**
+## Local Storage:
 Local storage is a built-in API that web browsers provide for persisting data on the client-side. It allows you to store key-value pairs of data that survive page refreshes and browser closures.
 
 - Stores data (key-value pairs) on the client-side (browser).
